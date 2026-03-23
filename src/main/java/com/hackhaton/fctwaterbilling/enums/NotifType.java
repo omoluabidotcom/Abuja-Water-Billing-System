@@ -1,0 +1,15 @@
+package com.hackhaton.fctwaterbilling.enums;
+
+public enum NotifType {
+    INVOICE_READY,
+    PAYMENT_CONFIRMED,
+    PAYMENT_FAILED,
+    DUE_DATE_REMINDER,
+    OVERDUE_NOTICE,
+    DISCONNECTION_WARNING,
+    DISPUTE_RECEIVED,
+    DISPUTE_RESOLVED,
+    PIN_RESET_OTP,
+    ACCOUNT_LOCKED
+}
+
