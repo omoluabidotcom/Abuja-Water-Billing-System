@@ -4,57 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a2693969-36c6-4207-9f0c-c3dce9504074" name="Changes" comment="Add initial application configuration and entity models for water billing system">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fctabillingussd/.gitattributes" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fctabillingussd/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fctabillingweb/.gitattributes" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fctabillingweb/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fctabillingweb/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fctabillingweb/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fctabillingweb/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fctabillingweb/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fctabillingweb/src/main/java/com/hackhaton/fctbillingweb/web/ServletInitializer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fctabillingweb/src/main/java/com/hackhaton/fctbillingweb/web/WebApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fctabillingweb/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fctabillingweb/src/test/java/com/hackhaton/fctbillingweb/web/WebApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" afterPath="$PROJECT_DIR$/.gitattributes" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/fctabillingussd/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/fctabillingussd/mvnw" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/fctabillingussd/mvnw.cmd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/fctabillingussd/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackhaton/fctwaterbilling/FctWaterBillingApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/fctabillingussd/src/main/java/com/hackhaton/fctwaterbilling/FctWaterBillingApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackhaton/fctwaterbilling/entity/BaseEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/fctabillingussd/src/main/java/com/hackhaton/fctwaterbilling/entity/BaseEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackhaton/fctwaterbilling/entity/CustomerAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/fctabillingussd/src/main/java/com/hackhaton/fctwaterbilling/entity/CustomerAccount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackhaton/fctwaterbilling/entity/Dispute.java" beforeDir="false" afterPath="$PROJECT_DIR$/fctabillingussd/src/main/java/com/hackhaton/fctwaterbilling/entity/Dispute.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackhaton/fctwaterbilling/entity/Invoice.java" beforeDir="false" afterPath="$PROJECT_DIR$/fctabillingussd/src/main/java/com/hackhaton/fctwaterbilling/entity/Invoice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackhaton/fctwaterbilling/entity/Meter.java" beforeDir="false" afterPath="$PROJECT_DIR$/fctabillingussd/src/main/java/com/hackhaton/fctwaterbilling/entity/Meter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackhaton/fctwaterbilling/entity/MeterReading.java" beforeDir="false" afterPath="$PROJECT_DIR$/fctabillingussd/src/main/java/com/hackhaton/fctwaterbilling/entity/MeterReading.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackhaton/fctwaterbilling/entity/MeterReadingBatch.java" beforeDir="false" afterPath="$PROJECT_DIR$/fctabillingussd/src/main/java/com/hackhaton/fctwaterbilling/entity/MeterReadingBatch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackhaton/fctwaterbilling/entity/NotificationLog.java" beforeDir="false" afterPath="$PROJECT_DIR$/fctabillingussd/src/main/java/com/hackhaton/fctwaterbilling/entity/NotificationLog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackhaton/fctwaterbilling/entity/Payment.java" beforeDir="false" afterPath="$PROJECT_DIR$/fctabillingussd/src/main/java/com/hackhaton/fctwaterbilling/entity/Payment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackhaton/fctwaterbilling/entity/PinCredential.java" beforeDir="false" afterPath="$PROJECT_DIR$/fctabillingussd/src/main/java/com/hackhaton/fctwaterbilling/entity/PinCredential.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackhaton/fctwaterbilling/entity/Tariff.java" beforeDir="false" afterPath="$PROJECT_DIR$/fctabillingussd/src/main/java/com/hackhaton/fctwaterbilling/entity/Tariff.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackhaton/fctwaterbilling/entity/UssdSession.java" beforeDir="false" afterPath="$PROJECT_DIR$/fctabillingussd/src/main/java/com/hackhaton/fctwaterbilling/entity/UssdSession.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackhaton/fctwaterbilling/enums/DisputeStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/fctabillingussd/src/main/java/com/hackhaton/fctwaterbilling/enums/DisputeStatus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackhaton/fctwaterbilling/enums/InvoiceStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/fctabillingussd/src/main/java/com/hackhaton/fctwaterbilling/enums/InvoiceStatus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackhaton/fctwaterbilling/enums/MeterStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/fctabillingussd/src/main/java/com/hackhaton/fctwaterbilling/enums/MeterStatus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackhaton/fctwaterbilling/enums/NotifChannel.java" beforeDir="false" afterPath="$PROJECT_DIR$/fctabillingussd/src/main/java/com/hackhaton/fctwaterbilling/enums/NotifChannel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackhaton/fctwaterbilling/enums/NotifStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/fctabillingussd/src/main/java/com/hackhaton/fctwaterbilling/enums/NotifStatus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackhaton/fctwaterbilling/enums/NotifType.java" beforeDir="false" afterPath="$PROJECT_DIR$/fctabillingussd/src/main/java/com/hackhaton/fctwaterbilling/enums/NotifType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackhaton/fctwaterbilling/enums/PaymentChannel.java" beforeDir="false" afterPath="$PROJECT_DIR$/fctabillingussd/src/main/java/com/hackhaton/fctwaterbilling/enums/PaymentChannel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackhaton/fctwaterbilling/enums/PaymentMethod.java" beforeDir="false" afterPath="$PROJECT_DIR$/fctabillingussd/src/main/java/com/hackhaton/fctwaterbilling/enums/PaymentMethod.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackhaton/fctwaterbilling/enums/PaymentStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/fctabillingussd/src/main/java/com/hackhaton/fctwaterbilling/enums/PaymentStatus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackhaton/fctwaterbilling/enums/ReadingSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/fctabillingussd/src/main/java/com/hackhaton/fctwaterbilling/enums/ReadingSource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackhaton/fctwaterbilling/enums/ReadingType.java" beforeDir="false" afterPath="$PROJECT_DIR$/fctabillingussd/src/main/java/com/hackhaton/fctwaterbilling/enums/ReadingType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackhaton/fctwaterbilling/enums/SessionStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/fctabillingussd/src/main/java/com/hackhaton/fctwaterbilling/enums/SessionStatus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackhaton/fctwaterbilling/enums/UserRole.java" beforeDir="false" afterPath="$PROJECT_DIR$/fctabillingussd/src/main/java/com/hackhaton/fctwaterbilling/enums/UserRole.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackhaton/fctwaterbilling/enums/UserStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/fctabillingussd/src/main/java/com/hackhaton/fctwaterbilling/enums/UserStatus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/fctabillingussd/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/hackhaton/fctwaterbilling/FctWaterBillingApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/fctabillingussd/src/test/java/com/hackhaton/fctwaterbilling/FctWaterBillingApplicationTests.java" afterDir="false" />
+    <list default="true" id="a2693969-36c6-4207-9f0c-c3dce9504074" name="Changes" comment="Refactor project structure and add initial configuration files for the water billing system">
+      <change afterPath="$PROJECT_DIR$/fctabillingussd/src/main/java/com/hackhaton/fctwaterbilling/entity/SystemUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fctabillingussd/src/main/java/com/hackhaton/fctwaterbilling/enums/AccountStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,6 +89,9 @@
     </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="StructureViewState">
+    <option name="selectedTab" value="Logical" />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="a2693969-36c6-4207-9f0c-c3dce9504074" name="Changes" comment="" />
@@ -145,7 +101,7 @@
       <updated>1774271027324</updated>
       <workItem from="1774271028653" duration="10087000" />
       <workItem from="1774298211530" duration="93000" />
-      <workItem from="1774298324899" duration="1748000" />
+      <workItem from="1774298324899" duration="3160000" />
     </task>
     <task id="LOCAL-00001" summary="Add initial application configuration and entity models for water billing system">
       <option name="closed" value="true" />
@@ -155,7 +111,15 @@
       <option name="project" value="LOCAL" />
       <updated>1774297783238</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Refactor project structure and add initial configuration files for the water billing system">
+      <option name="closed" value="true" />
+      <created>1774300456768</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1774300456768</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -163,7 +127,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Add initial application configuration and entity models for water billing system" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add initial application configuration and entity models for water billing system" />
+    <MESSAGE value="Refactor project structure and add initial configuration files for the water billing system" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor project structure and add initial configuration files for the water billing system" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>

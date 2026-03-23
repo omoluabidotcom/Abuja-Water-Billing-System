@@ -34,15 +34,17 @@ public class Meter extends BaseEntity {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, columnDefinition = "varchar(50)")
+    @Builder.Default
     private MeterStatus status = MeterStatus.ACTIVE;
 
     @Column(name = "last_reading", nullable = false, precision = 12, scale = 3)
+    @Builder.Default
     private BigDecimal lastReading = BigDecimal.ZERO;
 
     @Column(name = "installed_at", nullable = false)
+    @Builder.Default
     private OffsetDateTime installedAt = OffsetDateTime.now();
 
     @Column(name = "decommissioned_at")
     private OffsetDateTime decommissionedAt;
 }
-

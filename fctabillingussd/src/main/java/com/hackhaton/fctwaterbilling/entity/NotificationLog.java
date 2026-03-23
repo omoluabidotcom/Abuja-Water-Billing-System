@@ -40,6 +40,7 @@ public class NotificationLog {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, columnDefinition = "varchar(50)")
+    @Builder.Default
     private NotifStatus status = NotifStatus.PENDING;
 
     @Column(name = "provider_ref", length = 255)
@@ -55,6 +56,6 @@ public class NotificationLog {
     private OffsetDateTime deliveredAt;
 
     @Column(name = "created_at", nullable = false)
+    @Builder.Default
     private OffsetDateTime createdAt = OffsetDateTime.now();
 }
-

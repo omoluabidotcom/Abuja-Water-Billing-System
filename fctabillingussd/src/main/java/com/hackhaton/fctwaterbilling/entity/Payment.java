@@ -45,6 +45,7 @@ public class Payment extends BaseEntity {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, columnDefinition = "varchar(50)")
+    @Builder.Default
     private PaymentStatus status = PaymentStatus.PENDING;
 
     @Column(name = "failure_reason", columnDefinition = "TEXT")
@@ -54,10 +55,10 @@ public class Payment extends BaseEntity {
     private OffsetDateTime paidAt;
 
     @Column(name = "recorded_at", nullable = false)
+    @Builder.Default
     private OffsetDateTime recordedAt = OffsetDateTime.now();
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "recorded_by")
-    private CustomerAccount recordedBy;
+    private SystemUser recordedBy;
 }
-

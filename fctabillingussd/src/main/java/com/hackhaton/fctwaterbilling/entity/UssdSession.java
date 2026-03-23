@@ -40,9 +40,11 @@ public class UssdSession {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, columnDefinition = "varchar(50)")
+    @Builder.Default
     private SessionStatus status = SessionStatus.ACTIVE;
 
     @Column(name = "started_at", nullable = false)
+    @Builder.Default
     private OffsetDateTime startedAt = OffsetDateTime.now();
 
     @Column(name = "expires_at", nullable = false)
@@ -51,4 +53,3 @@ public class UssdSession {
     @Column(name = "terminated_at")
     private OffsetDateTime terminatedAt;
 }
-

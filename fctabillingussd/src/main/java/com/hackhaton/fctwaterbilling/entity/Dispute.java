@@ -45,6 +45,7 @@ public class Dispute extends BaseEntity {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, columnDefinition = "varchar(50)")
+    @Builder.Default
     private DisputeStatus status = DisputeStatus.SUBMITTED;
 
     @Column(name = "resolution_note", columnDefinition = "TEXT")
@@ -55,12 +56,12 @@ public class Dispute extends BaseEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "resolved_by")
-    private CustomerAccount resolvedBy;
+    private SystemUser resolvedBy;
 
     @Column(name = "submitted_at", nullable = false)
+    @Builder.Default
     private OffsetDateTime submittedAt = OffsetDateTime.now();
 
     @Column(name = "resolved_at")
     private OffsetDateTime resolvedAt;
 }
-

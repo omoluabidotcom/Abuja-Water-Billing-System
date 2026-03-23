@@ -24,25 +24,29 @@ public class MeterReadingBatch {
     private String fileName;
 
     @Column(name = "total_records", nullable = false)
+    @Builder.Default
     private int totalRecords = 0;
 
     @Column(name = "success_count", nullable = false)
+    @Builder.Default
     private int successCount = 0;
 
     @Column(name = "error_count", nullable = false)
+    @Builder.Default
     private int errorCount = 0;
 
     @Column(nullable = false, length = 20)
+    @Builder.Default
     private String status = "PROCESSING";
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "uploaded_by")
-    private CustomerAccount uploadedBy;
+    private SystemUser uploadedBy;
 
     @Column(name = "uploaded_at", nullable = false)
+    @Builder.Default
     private OffsetDateTime uploadedAt = OffsetDateTime.now();
 
     @Column(name = "processed_at")
     private OffsetDateTime processedAt;
 }
-

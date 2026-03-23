@@ -25,15 +25,17 @@ public class PinCredential {
     private String pinHash;
 
     @Column(name = "failed_attempts", nullable = false)
+    @Builder.Default
     private int failedAttempts = 0;
 
     @Column(name = "is_locked", nullable = false)
+    @Builder.Default
     private boolean isLocked = false;
 
     @Column(name = "locked_until")
     private OffsetDateTime lockedUntil;
 
     @Column(name = "updated_at", nullable = false)
+    @Builder.Default
     private OffsetDateTime updatedAt = OffsetDateTime.now();
 }
-

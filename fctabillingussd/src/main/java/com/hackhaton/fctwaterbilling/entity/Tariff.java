@@ -25,12 +25,15 @@ public class Tariff extends BaseEntity {
     private String description;
 
     @Column(name = "fixed_service_fee", nullable = false, precision = 12, scale = 2)
+    @Builder.Default
     private BigDecimal fixedServiceFee = BigDecimal.ZERO;
 
     @Column(name = "rate_per_unit", nullable = false, precision = 12, scale = 4)
+    @Builder.Default
     private BigDecimal ratePerUnit = BigDecimal.ZERO;
 
     @Column(name = "is_active", nullable = false)
+    @Builder.Default
     private boolean isActive = true;
 
     @Column(name = "effective_from", nullable = false)
@@ -41,6 +44,5 @@ public class Tariff extends BaseEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "created_by")
-    private CustomerAccount createdBy;
+    private SystemUser createdBy;
 }
-

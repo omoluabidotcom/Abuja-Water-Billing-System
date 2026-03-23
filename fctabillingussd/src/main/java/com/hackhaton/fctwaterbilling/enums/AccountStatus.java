@@ -1,8 +1,9 @@
 package com.hackhaton.fctwaterbilling.enums;
 
-public enum UserStatus {
+public enum AccountStatus {
     ACTIVE,
     INACTIVE,
-    SUSPENDED
+    SUSPENDED,
+    PENDING_VERIFICATION
 }
 

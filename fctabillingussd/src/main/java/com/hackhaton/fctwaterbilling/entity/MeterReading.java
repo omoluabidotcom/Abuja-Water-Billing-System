@@ -33,24 +33,27 @@ public class MeterReading {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "reading_type", nullable = false, columnDefinition = "varchar(50)")
+    @Builder.Default
     private ReadingType readingType = ReadingType.ACTUAL;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, columnDefinition = "varchar(50)")
+    @Builder.Default
     private ReadingSource source = ReadingSource.MANUAL;
 
 
     @Column(name = "is_disputed", nullable = false)
+    @Builder.Default
     private boolean isDisputed = false;
 
     @Column(name = "read_at", nullable = false)
     private OffsetDateTime readAt;
 
     @Column(name = "recorded_at", nullable = false)
+    @Builder.Default
     private OffsetDateTime recordedAt = OffsetDateTime.now();
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "recorded_by")
-    private CustomerAccount recordedBy;
+    private SystemUser recordedBy;
 }
-
