@@ -1,5 +1,8 @@
 package com.hackhaton.fctwaterbilling.entity;
 
+import com.hackhaton.fctwaterbilling.enums.HouseType;
+import com.hackhaton.fctwaterbilling.enums.TariffTier;
+import com.hackhaton.fctwaterbilling.enums.UserRole;
 import jakarta.persistence.*;
 import lombok.*;
 import java.math.BigDecimal;
@@ -24,9 +27,9 @@ public class Tariff extends BaseEntity {
     @Column(columnDefinition = "TEXT")
     private String description;
 
-    @Column(name = "fixed_service_fee", nullable = false, precision = 12, scale = 2)
-    @Builder.Default
-    private BigDecimal fixedServiceFee = BigDecimal.ZERO;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "house_type", nullable = false, columnDefinition = "varchar(50)")
+    private HouseType houseType;
 
     @Column(name = "rate_per_unit", nullable = false, precision = 12, scale = 4)
     @Builder.Default
@@ -36,11 +39,9 @@ public class Tariff extends BaseEntity {
     @Builder.Default
     private boolean isActive = true;
 
-    @Column(name = "effective_from", nullable = false)
-    private LocalDate effectiveFrom;
-
-    @Column(name = "effective_to")
-    private LocalDate effectiveTo;
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false, columnDefinition = "varchar(50)")
+    private TariffTier tariffTier = TariffTier.METER    ;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "created_by")

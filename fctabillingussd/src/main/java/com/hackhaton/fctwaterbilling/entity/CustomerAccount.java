@@ -1,6 +1,7 @@
 package com.hackhaton.fctwaterbilling.entity;
 
 import com.hackhaton.fctwaterbilling.enums.AccountStatus;
+import com.hackhaton.fctwaterbilling.enums.HouseType;
 import jakarta.persistence.*;
 import lombok.*;
 import java.time.OffsetDateTime;
@@ -18,9 +19,6 @@ public class CustomerAccount extends BaseEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private SystemUser user;
-
-    @Column(name = "account_number", nullable = false, unique = true, length = 20)
-    private String accountNumber;
 
     @Column(name = "first_name", nullable = false, length = 100)
     private String firstName;
@@ -43,7 +41,14 @@ public class CustomerAccount extends BaseEntity {
     @Enumerated(EnumType.STRING)
     @Column(name = "account_status", nullable = false, columnDefinition = "varchar(50)")
     @Builder.Default
-    private AccountStatus accountStatus = AccountStatus.PENDING_VERIFICATION;
+    private AccountStatus accountStatus = AccountStatus.ACTIVE;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "house_type", nullable = false, columnDefinition = "varchar(50)")
+    private HouseType houseType;
+
+    @Column(name = "is_estimated")
+    private boolean isestimated;
 
     @Column(name = "registered_at", nullable = false, updatable = false)
     @Builder.Default
@@ -68,17 +73,9 @@ public class CustomerAccount extends BaseEntity {
     @Builder.Default
     private boolean emailEnabled = false;
 
-    @Column(name = "preferred_language", nullable = false, length = 10)
-    @Builder.Default
-    private String preferredLanguage = "en";
-
-    @Column(name = "bill_ready_alert", nullable = false)
-    @Builder.Default
-    private boolean billReadyAlert = true;
-
-    @Column(name = "payment_alert", nullable = false)
-    @Builder.Default
-    private boolean paymentAlert = true;
+//    @Column(name = "preferred_language", nullable = false, length = 10)
+//    @Builder.Default
+//    private String preferredLanguage = "en";
 
     @Column(name = "due_date_alert", nullable = false)
     @Builder.Default

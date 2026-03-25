@@ -25,18 +25,11 @@ public class UssdSession {
     @JoinColumn(name = "customer_account_id")
     private CustomerAccount customerAccount;
 
-    @Column(nullable = false, length = 20)
+    @Column(nullable = true, length = 20)
     private String msisdn;
 
     @Column(name = "session_id", nullable = false, unique = true, length = 100)
     private String sessionId;
-
-    @Column(name = "current_menu", length = 100)
-    private String currentMenu;
-
-    @JdbcTypeCode(SqlTypes.JSON)
-    @Column(name = "session_data", columnDefinition = "jsonb", nullable = false)
-    private JsonNode sessionData;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, columnDefinition = "varchar(50)")

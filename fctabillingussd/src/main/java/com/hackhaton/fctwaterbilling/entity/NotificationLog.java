@@ -26,7 +26,7 @@ public class NotificationLog {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, columnDefinition = "varchar(50)")
-    private NotifChannel channel;
+    private NotifChannel channel = NotifChannel.SMS;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "notification_type", nullable = false, columnDefinition = "varchar(50)")
@@ -41,19 +41,10 @@ public class NotificationLog {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, columnDefinition = "varchar(50)")
     @Builder.Default
-    private NotifStatus status = NotifStatus.PENDING;
-
-    @Column(name = "provider_ref", length = 255)
-    private String providerRef;
-
-    @Column(name = "error_message", columnDefinition = "TEXT")
-    private String errorMessage;
+    private NotifStatus status = NotifStatus.SENT;
 
     @Column(name = "sent_at")
     private OffsetDateTime sentAt;
-
-    @Column(name = "delivered_at")
-    private OffsetDateTime deliveredAt;
 
     @Column(name = "created_at", nullable = false)
     @Builder.Default
