@@ -4,23 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a2693969-36c6-4207-9f0c-c3dce9504074" name="Changes" comment="Refactor entity models to replace UserAccount references with SystemUser and introduce AccountStatus enum">
-      <change afterPath="$PROJECT_DIR$/fctabillingussd/src/main/java/com/hackhaton/fctwaterbilling/enums/TariffTier.java" afterDir="false" />
+    <list default="true" id="a2693969-36c6-4207-9f0c-c3dce9504074" name="Changes" comment="Refactor entity models and update application properties for water billing system">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fctabillingussd/src/main/java/com/hackhaton/fctwaterbilling/entity/CustomerAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/fctabillingussd/src/main/java/com/hackhaton/fctwaterbilling/entity/CustomerAccount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fctabillingussd/src/main/java/com/hackhaton/fctwaterbilling/entity/Invoice.java" beforeDir="false" afterPath="$PROJECT_DIR$/fctabillingussd/src/main/java/com/hackhaton/fctwaterbilling/entity/Invoice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fctabillingussd/src/main/java/com/hackhaton/fctwaterbilling/entity/MeterReading.java" beforeDir="false" afterPath="$PROJECT_DIR$/fctabillingussd/src/main/java/com/hackhaton/fctwaterbilling/entity/MeterReading.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fctabillingussd/src/main/java/com/hackhaton/fctwaterbilling/entity/NotificationLog.java" beforeDir="false" afterPath="$PROJECT_DIR$/fctabillingussd/src/main/java/com/hackhaton/fctwaterbilling/entity/NotificationLog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fctabillingussd/src/main/java/com/hackhaton/fctwaterbilling/entity/SystemUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/fctabillingussd/src/main/java/com/hackhaton/fctwaterbilling/entity/SystemUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fctabillingussd/src/main/java/com/hackhaton/fctwaterbilling/entity/Tariff.java" beforeDir="false" afterPath="$PROJECT_DIR$/fctabillingussd/src/main/java/com/hackhaton/fctwaterbilling/entity/Tariff.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fctabillingussd/src/main/java/com/hackhaton/fctwaterbilling/entity/UssdSession.java" beforeDir="false" afterPath="$PROJECT_DIR$/fctabillingussd/src/main/java/com/hackhaton/fctwaterbilling/entity/UssdSession.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fctabillingussd/src/main/java/com/hackhaton/fctwaterbilling/enums/InvoiceStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/fctabillingussd/src/main/java/com/hackhaton/fctwaterbilling/enums/InvoiceStatus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fctabillingussd/src/main/java/com/hackhaton/fctwaterbilling/enums/NotifStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/fctabillingussd/src/main/java/com/hackhaton/fctwaterbilling/enums/NotifStatus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fctabillingussd/src/main/java/com/hackhaton/fctwaterbilling/enums/ReadingSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/fctabillingussd/src/main/java/com/hackhaton/fctwaterbilling/enums/ReadingSource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fctabillingussd/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/fctabillingussd/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fctabillingweb/src/main/frontend/generated/flow/generated-flow-imports.js" beforeDir="false" afterPath="$PROJECT_DIR$/fctabillingweb/src/main/frontend/generated/flow/generated-flow-imports.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fctabillingweb/src/main/frontend/generated/flow/generated-flow-webcomponent-imports.js" beforeDir="false" afterPath="$PROJECT_DIR$/fctabillingweb/src/main/frontend/generated/flow/generated-flow-webcomponent-imports.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fctabillingweb/src/main/frontend/generated/vaadin.ts" beforeDir="false" afterPath="$PROJECT_DIR$/fctabillingweb/src/main/frontend/generated/vaadin.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +70,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "Spring Boot.FctWaterBillingApplication.executor": "Run",
-    "Spring Boot.WebApplication.executor": "Debug",
+    "Spring Boot.WebApplication.executor": "Run",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
@@ -100,7 +85,7 @@
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
-  <component name="RunManager" selected="Spring Boot.FctWaterBillingApplication">
+  <component name="RunManager" selected="Spring Boot.WebApplication">
     <configuration name="FctWaterBillingApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="fctabillingussd" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.hackhaton.fctwaterbilling.FctWaterBillingApplication" />
@@ -137,7 +122,7 @@
       <updated>1774271027324</updated>
       <workItem from="1774271028653" duration="10087000" />
       <workItem from="1774298211530" duration="93000" />
-      <workItem from="1774298324899" duration="17901000" />
+      <workItem from="1774298324899" duration="18203000" />
     </task>
     <task id="LOCAL-00001" summary="Add initial application configuration and entity models for water billing system">
       <option name="closed" value="true" />
@@ -163,7 +148,15 @@
       <option name="project" value="LOCAL" />
       <updated>1774302567974</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Refactor entity models and update application properties for water billing system">
+      <option name="closed" value="true" />
+      <created>1774442527511</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1774442527511</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -173,7 +166,8 @@
     <MESSAGE value="Add initial application configuration and entity models for water billing system" />
     <MESSAGE value="Refactor project structure and add initial configuration files for the water billing system" />
     <MESSAGE value="Refactor entity models to replace UserAccount references with SystemUser and introduce AccountStatus enum" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactor entity models to replace UserAccount references with SystemUser and introduce AccountStatus enum" />
+    <MESSAGE value="Refactor entity models and update application properties for water billing system" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor entity models and update application properties for water billing system" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>

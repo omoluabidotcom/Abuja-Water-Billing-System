@@ -34,3 +34,5 @@ build/
 ### VS Code ###
 .vscode/
 
+fctabillingweb/src/main/frontend/generated/
+.idea/
