@@ -101,6 +101,7 @@ public class Invoice extends BaseEntity {
     @JoinColumn(name = "voided_by")
     private SystemUser voidedBy;
 
-    @OneToMany(mappedBy = "invoice", cascade = CascadeType.ALL)
-    private List<Payment> payments;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "invoice_id")
+    private Payment payments;
 }

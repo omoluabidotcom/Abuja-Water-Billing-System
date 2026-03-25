@@ -24,10 +24,6 @@ public class MeterReading {
     @JoinColumn(name = "meter_id", nullable = false)
     private Meter meter;
 
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "batch_id")
-//    private MeterReadingBatch batch;
-
     @Column(name = "reading_value", nullable = false, precision = 12, scale = 3)
     private BigDecimal readingValue;
 

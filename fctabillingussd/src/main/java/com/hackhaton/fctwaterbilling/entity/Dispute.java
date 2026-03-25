@@ -24,7 +24,7 @@ public class Dispute extends BaseEntity {
     private CustomerAccount customerAccount;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "invoice_id", nullable = false)
+    @JoinColumn(name = "invoice_id")
     private Invoice invoice;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -50,9 +50,6 @@ public class Dispute extends BaseEntity {
 
     @Column(name = "resolution_note", columnDefinition = "TEXT")
     private String resolutionNote;
-
-    @Column(name = "adjusted_amount", precision = 12, scale = 2)
-    private BigDecimal adjustedAmount;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "resolved_by")

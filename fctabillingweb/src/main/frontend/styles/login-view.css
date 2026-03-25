@@ -1,0 +1,30 @@
+/* =========================================================
+   Login View — page-level document styles
+   ========================================================= */
+
+/* Override Lumo primary colour just for our sign-in button */
+.sign-in-btn {
+    --lumo-primary-color: #0f172a;
+    --lumo-primary-text-color: #ffffff;
+    --lumo-primary-color-50pct: rgba(15, 23, 42, 0.5);
+    --lumo-primary-color-10pct: rgba(15, 23, 42, 0.1);
+    width: 100%;
+    height: 48px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 1.25rem;
+}
+
+/* Ensure Vaadin text-fields in the card look clean */
+.login-card vaadin-text-field,
+.login-card vaadin-password-field {
+    width: 100%;
+}
+
+/* Remove Vaadin's default body margin so the gradient fills edge-to-edge */
+body {
+    margin: 0;
+    padding: 0;
+}
+

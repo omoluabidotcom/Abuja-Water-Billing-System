@@ -4,8 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a2693969-36c6-4207-9f0c-c3dce9504074" name="Changes" comment="Refactor entity models and update application properties for water billing system">
+    <list default="true" id="a2693969-36c6-4207-9f0c-c3dce9504074" name="Changes" comment="Update .gitignore and workspace configuration for water billing system">
+      <change afterPath="$PROJECT_DIR$/fctabillingussd/src/main/java/com/hackhaton/fctwaterbilling/config/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fctabillingussd/src/main/java/com/hackhaton/fctwaterbilling/exception/AuthException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fctabillingussd/src/main/java/com/hackhaton/fctwaterbilling/repository/SystemUserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fctabillingweb/src/main/frontend/styles/login-view.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fctabillingweb/src/main/java/com/hackhaton/fctbillingweb/web/views/LoginView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fctabillingussd/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/fctabillingussd/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fctabillingussd/src/main/java/com/hackhaton/fctwaterbilling/FctWaterBillingApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/fctabillingussd/src/main/java/com/hackhaton/fctwaterbilling/FctWaterBillingApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fctabillingussd/src/main/java/com/hackhaton/fctwaterbilling/entity/CustomerAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/fctabillingussd/src/main/java/com/hackhaton/fctwaterbilling/entity/CustomerAccount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fctabillingussd/src/main/java/com/hackhaton/fctwaterbilling/entity/Dispute.java" beforeDir="false" afterPath="$PROJECT_DIR$/fctabillingussd/src/main/java/com/hackhaton/fctwaterbilling/entity/Dispute.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fctabillingussd/src/main/java/com/hackhaton/fctwaterbilling/entity/Invoice.java" beforeDir="false" afterPath="$PROJECT_DIR$/fctabillingussd/src/main/java/com/hackhaton/fctwaterbilling/entity/Invoice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fctabillingussd/src/main/java/com/hackhaton/fctwaterbilling/entity/MeterReading.java" beforeDir="false" afterPath="$PROJECT_DIR$/fctabillingussd/src/main/java/com/hackhaton/fctwaterbilling/entity/MeterReading.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fctabillingussd/src/main/java/com/hackhaton/fctwaterbilling/entity/SystemUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/fctabillingussd/src/main/java/com/hackhaton/fctwaterbilling/entity/SystemUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fctabillingussd/src/main/java/com/hackhaton/fctwaterbilling/entity/Tariff.java" beforeDir="false" afterPath="$PROJECT_DIR$/fctabillingussd/src/main/java/com/hackhaton/fctwaterbilling/entity/Tariff.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fctabillingweb/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/fctabillingweb/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fctabillingweb/src/main/java/com/hackhaton/fctbillingweb/web/WebApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/fctabillingweb/src/main/java/com/hackhaton/fctbillingweb/web/WebApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fctabillingweb/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/fctabillingweb/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,7 +34,7 @@
     </persistenceIdMap>
   </component>
   <component name="CopilotUserSelectedChatMode">
-    <option name="chatModeId" value="Ask" />
+    <option name="chatModeId" value="Agent" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -122,7 +138,7 @@
       <updated>1774271027324</updated>
       <workItem from="1774271028653" duration="10087000" />
       <workItem from="1774298211530" duration="93000" />
-      <workItem from="1774298324899" duration="18203000" />
+      <workItem from="1774298324899" duration="26732000" />
     </task>
     <task id="LOCAL-00001" summary="Add initial application configuration and entity models for water billing system">
       <option name="closed" value="true" />
@@ -156,7 +172,15 @@
       <option name="project" value="LOCAL" />
       <updated>1774442527511</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Update .gitignore and workspace configuration for water billing system">
+      <option name="closed" value="true" />
+      <created>1774453447931</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1774453447931</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -167,7 +191,8 @@
     <MESSAGE value="Refactor project structure and add initial configuration files for the water billing system" />
     <MESSAGE value="Refactor entity models to replace UserAccount references with SystemUser and introduce AccountStatus enum" />
     <MESSAGE value="Refactor entity models and update application properties for water billing system" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactor entity models and update application properties for water billing system" />
+    <MESSAGE value="Update .gitignore and workspace configuration for water billing system" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update .gitignore and workspace configuration for water billing system" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>

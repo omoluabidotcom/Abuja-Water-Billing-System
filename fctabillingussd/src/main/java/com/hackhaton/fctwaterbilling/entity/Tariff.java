@@ -1,5 +1,6 @@
 package com.hackhaton.fctwaterbilling.entity;
 
+import com.hackhaton.fctwaterbilling.enums.HouseType;
 import com.hackhaton.fctwaterbilling.enums.TariffTier;
 import com.hackhaton.fctwaterbilling.enums.UserRole;
 import jakarta.persistence.*;
@@ -26,9 +27,9 @@ public class Tariff extends BaseEntity {
     @Column(columnDefinition = "TEXT")
     private String description;
 
-    @Column(name = "fixed_service_fee", nullable = false, precision = 12, scale = 2)
-    @Builder.Default
-    private BigDecimal fixedServiceFee = BigDecimal.ZERO;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "house_type", nullable = false, columnDefinition = "varchar(50)")
+    private HouseType houseType;
 
     @Column(name = "rate_per_unit", nullable = false, precision = 12, scale = 4)
     @Builder.Default
