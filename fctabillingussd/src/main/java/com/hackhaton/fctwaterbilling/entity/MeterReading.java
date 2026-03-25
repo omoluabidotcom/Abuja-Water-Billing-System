@@ -24,9 +24,9 @@ public class MeterReading {
     @JoinColumn(name = "meter_id", nullable = false)
     private Meter meter;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "batch_id")
-    private MeterReadingBatch batch;
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "batch_id")
+//    private MeterReadingBatch batch;
 
     @Column(name = "reading_value", nullable = false, precision = 12, scale = 3)
     private BigDecimal readingValue;
@@ -39,7 +39,7 @@ public class MeterReading {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, columnDefinition = "varchar(50)")
     @Builder.Default
-    private ReadingSource source = ReadingSource.MANUAL;
+    private ReadingSource source = ReadingSource.ADMIN_PORTAL;
 
 
     @Column(name = "is_disputed", nullable = false)

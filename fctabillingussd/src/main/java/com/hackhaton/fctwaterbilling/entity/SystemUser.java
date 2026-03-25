@@ -23,7 +23,7 @@ public class SystemUser extends BaseEntity {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, columnDefinition = "varchar(50)")
-    private UserRole role;
+    private UserRole role = UserRole.ADMIN;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, columnDefinition = "varchar(50)")

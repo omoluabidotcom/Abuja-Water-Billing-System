@@ -68,17 +68,9 @@ public class CustomerAccount extends BaseEntity {
     @Builder.Default
     private boolean emailEnabled = false;
 
-    @Column(name = "preferred_language", nullable = false, length = 10)
-    @Builder.Default
-    private String preferredLanguage = "en";
-
-    @Column(name = "bill_ready_alert", nullable = false)
-    @Builder.Default
-    private boolean billReadyAlert = true;
-
-    @Column(name = "payment_alert", nullable = false)
-    @Builder.Default
-    private boolean paymentAlert = true;
+//    @Column(name = "preferred_language", nullable = false, length = 10)
+//    @Builder.Default
+//    private String preferredLanguage = "en";
 
     @Column(name = "due_date_alert", nullable = false)
     @Builder.Default
