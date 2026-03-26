@@ -29,6 +29,10 @@ public class DashboardView extends VerticalLayout implements BeforeEnterObserver
     public void beforeEnter(BeforeEnterEvent event) {
         if (!SecuritySession.isLoggedIn()) {
             event.forwardTo(LoginView.class);
+            return;
+        }
+        if (SecuritySession.isAdmin()) {
+            event.forwardTo("admin/dashboard");
         }
     }
 

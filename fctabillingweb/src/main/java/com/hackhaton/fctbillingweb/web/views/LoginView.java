@@ -1,5 +1,6 @@
 package com.hackhaton.fctbillingweb.web.views;
 
+import com.hackhaton.fctwaterbilling.enums.UserRole;
 import com.hackhaton.fctwaterbilling.exception.AuthException;
 import com.hackhaton.fctwaterbilling.service.AuthService;
 import com.hackhaton.fctbillingweb.web.security.SecuritySession;
@@ -169,7 +170,11 @@ public class LoginView extends VerticalLayout implements BeforeEnterObserver {
     @Override
     public void beforeEnter(BeforeEnterEvent event) {
         if (SecuritySession.isLoggedIn()) {
-            event.forwardTo(DashboardView.class);
+            if (SecuritySession.isAdmin()) {
+                event.forwardTo("admin/dashboard");
+            } else {
+                event.forwardTo(DashboardView.class);
+            }
         }
     }
 
@@ -187,7 +192,13 @@ public class LoginView extends VerticalLayout implements BeforeEnterObserver {
         try {
             var user = authService.login(username, password);
             SecuritySession.setUser(user);
-            getUI().ifPresent(ui -> ui.navigate(DashboardView.class));
+            getUI().ifPresent(ui -> {
+                if (user.getRole() == UserRole.ADMIN) {
+                    ui.navigate("admin/dashboard");
+                } else {
+                    ui.navigate(DashboardView.class);
+                }
+            });
         } catch (AuthException ex) {
             passwordField.clear();
             notify(ex.getMessage(), NotificationVariant.LUMO_ERROR);
