@@ -51,6 +51,9 @@ public class Payment extends BaseEntity {
     @Column(name = "failure_reason", columnDefinition = "TEXT")
     private String failureReason;
 
+    @Column(columnDefinition = "TEXT")
+    private String notes;
+
     @Column(name = "paid_at")
     private OffsetDateTime paidAt;
 
