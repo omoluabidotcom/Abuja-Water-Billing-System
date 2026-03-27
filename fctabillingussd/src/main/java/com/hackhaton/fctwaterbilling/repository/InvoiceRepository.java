@@ -6,11 +6,15 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public interface InvoiceRepository extends JpaRepository<Invoice, Long> {
 
     boolean existsByMeterReading_Id(Long meterReadingId);
+
+    boolean existsByCustomerAccount_IdAndBillingPeriodStartAndBillingPeriodEndAndMeterReadingIsNull(
+            Long customerAccountId, LocalDate billingPeriodStart, LocalDate billingPeriodEnd);
 
     @Query("SELECT DISTINCT i FROM Invoice i JOIN FETCH i.customerAccount "
             + "WHERE i.status <> :voidStatus AND i.amountPaid < i.totalAmount ORDER BY i.generatedAt DESC")

@@ -43,14 +43,22 @@ public class InvoicesView extends VerticalLayout implements BeforeEnterObserver 
         title.getStyle().set("margin", "0").set("color", "#0f172a").set("font-size", "1.5rem");
 
         Paragraph subtitle = new Paragraph(
-                "Review issued bills. Generate invoices from meter readings that are not yet billed.");
+                "Review issued bills. Generate from meter reads, or from estimated (flat) tariffs for customers on estimated billing.");
         subtitle.getStyle().set("margin", "0.25rem 0 0 0").set("color", "#64748b").set("font-size", "0.9rem");
 
-        Button generate = new Button("Generate from meter readings", VaadinIcon.FILE_ADD.create(), e -> generateInvoices());
-        generate.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
-        generate.getStyle()
+        Button generateFromMeters = new Button("Generate from meter readings", VaadinIcon.FILE_ADD.create(), e -> generateInvoices());
+        generateFromMeters.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
+        generateFromMeters.getStyle()
                 .set("--lumo-primary-color", "#0f172a")
                 .set("--lumo-primary-text-color", "#ffffff");
+
+        Button generateEstimated = new Button("Generate estimated (fixed tariff)", VaadinIcon.CALENDAR_CLOCK.create(),
+                e -> generateEstimatedInvoices());
+        generateEstimated.addThemeVariants(ButtonVariant.LUMO_CONTRAST);
+
+        HorizontalLayout actions = new HorizontalLayout(generateFromMeters, generateEstimated);
+        actions.setSpacing(true);
+        actions.setAlignItems(FlexComponent.Alignment.END);
 
         HorizontalLayout header = new HorizontalLayout();
         header.setWidthFull();
@@ -59,7 +67,7 @@ public class InvoicesView extends VerticalLayout implements BeforeEnterObserver 
         VerticalLayout titles = new VerticalLayout(title, subtitle);
         titles.setPadding(false);
         titles.setSpacing(false);
-        header.add(titles, generate);
+        header.add(titles, actions);
 
         configureGrid();
         grid.setWidthFull();
@@ -132,7 +140,17 @@ public class InvoicesView extends VerticalLayout implements BeforeEnterObserver 
         Long uid = SecuritySession.getUser() != null ? SecuritySession.getUser().getId() : null;
         InvoiceService.InvoiceBatchResult result = invoiceService.generateInvoicesFromMeterReadings(uid);
         refreshGrid();
+        showBatchNotification(result);
+    }
 
+    private void generateEstimatedInvoices() {
+        Long uid = SecuritySession.getUser() != null ? SecuritySession.getUser().getId() : null;
+        InvoiceService.InvoiceBatchResult result = invoiceService.generateInvoicesForEstimatedCustomers(uid);
+        refreshGrid();
+        showBatchNotification(result);
+    }
+
+    private static void showBatchNotification(InvoiceService.InvoiceBatchResult result) {
         if (result.created() > 0) {
             Notification.show("Created " + result.created() + " invoice(s).", 4000, Notification.Position.TOP_CENTER)
                     .addThemeVariants(NotificationVariant.LUMO_SUCCESS);
