@@ -46,6 +46,14 @@ public class InvoiceService {
     }
 
     /**
+     * Invoices with a remaining balance whose due date has passed (unpaid past due), excluding voided invoices.
+     */
+    @Transactional(readOnly = true)
+    public List<Invoice> listDelinquent() {
+        return invoiceRepository.findDelinquentAsOf(InvoiceStatus.VOID, LocalDate.now());
+    }
+
+    /**
      * Creates one invoice per meter reading that is not yet linked to an invoice.
      * Consumption is the difference between this reading and the prior read on the same meter
      * (or zero baseline for the first read). Uses the active metered tariff for the customer's house type.

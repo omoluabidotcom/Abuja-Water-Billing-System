@@ -118,7 +118,7 @@ public class AdminLayout extends AppLayout implements BeforeEnterObserver {
         nav.addItem(navItem("Tariffs", "admin/tariffs", VaadinIcon.MONEY));
         nav.addItem(navItem("Invoices", "admin/invoices", VaadinIcon.FILE_TEXT));
         nav.addItem(navItem("Payments", "admin/payments", VaadinIcon.CREDIT_CARD));
-        nav.addItem(navItem("Delinquency", "admin/todo/delinquency", VaadinIcon.WARNING));
+        nav.addItem(navItem("Delinquency", "admin/delinquency", VaadinIcon.WARNING));
 
         return nav;
     }
