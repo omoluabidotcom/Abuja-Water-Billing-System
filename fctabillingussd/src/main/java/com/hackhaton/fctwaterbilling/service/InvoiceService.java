@@ -5,8 +5,10 @@ import com.hackhaton.fctwaterbilling.entity.Invoice;
 import com.hackhaton.fctwaterbilling.entity.MeterReading;
 import com.hackhaton.fctwaterbilling.entity.SystemUser;
 import com.hackhaton.fctwaterbilling.entity.Tariff;
+import com.hackhaton.fctwaterbilling.enums.AccountStatus;
 import com.hackhaton.fctwaterbilling.enums.InvoiceStatus;
 import com.hackhaton.fctwaterbilling.enums.TariffTier;
+import com.hackhaton.fctwaterbilling.repository.CustomerAccountRepository;
 import com.hackhaton.fctwaterbilling.repository.InvoiceRepository;
 import com.hackhaton.fctwaterbilling.repository.MeterReadingRepository;
 import com.hackhaton.fctwaterbilling.repository.SystemUserRepository;
@@ -19,6 +21,7 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
+import java.time.temporal.TemporalAdjusters;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -35,6 +38,7 @@ public class InvoiceService {
     private final MeterReadingRepository meterReadingRepository;
     private final TariffRepository tariffRepository;
     private final SystemUserRepository systemUserRepository;
+    private final CustomerAccountRepository customerAccountRepository;
 
     @Transactional(readOnly = true)
     public List<Invoice> listAll() {
@@ -142,6 +146,91 @@ public class InvoiceService {
         }
         if (skipped > 0 && created == 0 && notes.stream().noneMatch(s -> s.contains("No active metered"))) {
             notes.add(0, "Skipped " + skipped + " reading(s); see details below.");
+        }
+
+        return new InvoiceBatchResult(created, skipped, List.copyOf(notes));
+    }
+
+    /**
+     * Creates one invoice per active customer with {@link CustomerAccount#isestimated estimated billing}
+     * for the current calendar month, using the active {@link TariffTier#ESTIMATED} tariff's fixed amount.
+     * Skips customers who already have a non-metered invoice for that period or lack a valid estimated tariff.
+     */
+    @Transactional
+    public InvoiceBatchResult generateInvoicesForEstimatedCustomers(Long generatedByUserId) {
+        LocalDate today = LocalDate.now();
+        LocalDate periodStart = today.with(TemporalAdjusters.firstDayOfMonth());
+        LocalDate periodEnd = today.with(TemporalAdjusters.lastDayOfMonth());
+
+        List<CustomerAccount> customers = customerAccountRepository.findEstimatedByAccountStatus(AccountStatus.ACTIVE);
+        if (customers.isEmpty()) {
+            return new InvoiceBatchResult(0, 0, List.of("No active customers flagged for estimated billing."));
+        }
+
+        SystemUser generatedBy = null;
+        if (generatedByUserId != null) {
+            generatedBy = systemUserRepository.findById(generatedByUserId).orElse(null);
+        }
+
+        int created = 0;
+        int skipped = 0;
+        List<String> notes = new ArrayList<>();
+
+        for (CustomerAccount customer : customers) {
+            if (invoiceRepository.existsByCustomerAccount_IdAndBillingPeriodStartAndBillingPeriodEndAndMeterReadingIsNull(
+                    customer.getId(), periodStart, periodEnd)) {
+                skipped++;
+                continue;
+            }
+
+            Optional<Tariff> tariffOpt = tariffRepository.findFirstByHouseTypeAndTariffTierAndIsActiveTrueOrderByIdAsc(
+                    customer.getHouseType(), TariffTier.ESTIMATED);
+
+            if (tariffOpt.isEmpty()) {
+                skipped++;
+                notes.add("No active estimated tariff for house type "
+                        + customer.getHouseType() + " (customer id " + customer.getId() + ").");
+                continue;
+            }
+
+            Tariff tariff = tariffOpt.get();
+            BigDecimal fixed = tariff.getFixedTariff() != null ? tariff.getFixedTariff() : BigDecimal.ZERO;
+            if (fixed.compareTo(BigDecimal.ZERO) <= 0) {
+                skipped++;
+                notes.add("Estimated tariff has no fixed amount for customer id " + customer.getId() + ".");
+                continue;
+            }
+
+            BigDecimal amount = fixed.setScale(2, RoundingMode.HALF_UP);
+            String invoiceNumber = "EST-" + customer.getId() + "-"
+                    + periodStart.getYear() + String.format("%02d", periodStart.getMonthValue());
+
+            Invoice inv = Invoice.builder()
+                    .customerAccount(customer)
+                    .meterReading(null)
+                    .tariff(tariff)
+                    .invoiceNumber(invoiceNumber)
+                    .billingPeriodStart(periodStart)
+                    .billingPeriodEnd(periodEnd)
+                    .consumption(BigDecimal.ZERO)
+                    .consumptionCharge(amount)
+                    .totalAmount(amount)
+                    .amountPaid(BigDecimal.ZERO)
+                    .status(InvoiceStatus.ISSUED)
+                    .dueDate(periodEnd.plusDays(DUE_DAYS))
+                    .generatedAt(OffsetDateTime.now())
+                    .generatedBy(generatedBy)
+                    .build();
+
+            invoiceRepository.save(inv);
+            created++;
+        }
+
+        if (created > 0) {
+            notes.add(0, "Created " + created + " estimated invoice(s) for " + periodStart + " – " + periodEnd + ".");
+        }
+        if (skipped > 0 && created == 0 && notes.stream().noneMatch(s -> s.contains("No active customers"))) {
+            notes.add(0, "Skipped " + skipped + " customer(s); see details below.");
         }
 
         return new InvoiceBatchResult(created, skipped, List.copyOf(notes));
